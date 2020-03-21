@@ -3,6 +3,13 @@ const app = express();
 
 // USE environment variables '/.env'
 const dotenv = require('dotenv').config();
+// GET current Date for choosing a available date for evenement
+var mydate = require('current-date');
+// GET Post parameters
+const bodyParser = require('body-parser');
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', function(req, res) {
   res.render('index', { title: 'My events' });
