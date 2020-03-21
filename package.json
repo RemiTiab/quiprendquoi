@@ -1,0 +1,31 @@
+{
+  "name": "tp-bcalou",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Rémi Tiab",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "current-date": "^0.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "pug": "^2.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RemiTiab/quiprendquoi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RemiTiab/quiprendquoi/issues"
+  },
+  "homepage": "https://github.com/RemiTiab/quiprendquoi#readme"
+}

@@ -1,2 +1,2 @@
-# quiprendquoi
-POC d'une PWA
+# Qui prend quoi
+
