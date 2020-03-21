@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "sass": "node-sass styles/style.scss public/style.css -w --output-style compressed"
   },
   "keywords": [],
   "author": "Rémi Tiab",
