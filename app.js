@@ -29,6 +29,14 @@ app.post('/party', function(req, res) {
     .catch(err => res.send(err));
 });
 
+app.get('/party', function(req, res) {
+  res.render('party', {
+  party: data,
+  title: data.name,
+  url: `${process.env.FRONT_URL}:${process.env.PORT}/party/${data._id}`
+}),
+});
+
 app.listen(process.env.PORT, () =>
   console.log(`PWA <My Events> listening on port ${process.env.PORT}!`)
 );
