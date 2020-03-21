@@ -7,7 +7,8 @@ const dotenv = require('dotenv').config();
 var mydate = require('current-date');
 // GET Post parameters
 const bodyParser = require('body-parser');
-
+// API Requests
+const axios = require('axios');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -16,7 +17,10 @@ app.get('/', function(req, res) {
 });
 
 app.post('/party', function(req, res) {
-  res.send('Post ok !');
+  axios
+    .post(`${process.env.API_URL}/party`, req.body)
+    .then(({ data }) => console.log(data))
+    .catch(err => console.error(err));
 });
 
 app.listen(process.env.PORT, () =>
