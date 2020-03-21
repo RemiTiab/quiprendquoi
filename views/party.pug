@@ -1,5 +1,10 @@
 include ../partials/header.pug
 h1 Page des événements
+h2 #{name}
+h3 Créé par #{author}, cette événement aura lieu le #{date}.
+
+label(for="url") Partagez l'événement
+input(id="url" value=`${url}`)
 
 h2 Voici les lieux proposés pour l'événement
 
