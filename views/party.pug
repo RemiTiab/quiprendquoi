@@ -1,21 +1,38 @@
 include ../partials/header.pug
-h1 Page des événements
-h2 #{name}
-h3 Créé par #{author}, cette événement aura lieu le #{date}.
+script.
+  party = !{JSON.stringify(party)}
+h1= party.name
+p Evenement créé par #{party.author}
+p prévu le #{party.date}
+p #{party.description}
+h2 Paramètres de l'événement
 
-label(for="url") Partagez l'événement
-input(id="url" value=`${url}`)
+p Modifier l'événement
+form(method="get" action=`/party/${idParty}/update`)
+  input(type="submit" value="modifier")
 
-h2 Voici les lieux proposés pour l'événement
+p Supprimer l'événement
+form(method="post" action=`/party/${idParty}?_method=DELETE`)
+  input(type="submit" value="supprimer")
 
 h2 Proposer un lieu pour cette événement
+form(method="post" action=`/party/${idParty}/items`)
+  label(for="name") Lieu de l'événement
+  input(type="text" name="name" required minlength="3" maxlength="25" placeholder="Paris")
+  label(for="user") Votre pseudo
+  input(type="text" name="user" required minlength="3" maxlength="25" placeholder="Pseudo")
+  input(type="submit" value="Proposer")
 
-form(method="post" action=`/party`)
-  div
-    label(for="authorPlace") Pseudo
-    input(name="authorPlace" id="authorPlace" required minlength="3" placeholder="Votre Pseudo")
-    label(for="namePlace") Lieu de l'événement
-    input(name="namePlace" id="namePlace" required minlength="3" placeholder="Le nouveau casino")
-    label(for="adressPlace") Adresse du lieu
-    input(name="adressPlace" id="adressPlace" required minlength="3" placeholder="Place de la Bastille - 75000 Paris")
-  button(type="submit") Proposer
+
+h2 Voici les lieux proposés pour l'événement
+ul
+  each item in party.items
+    li #{item.name} est proposé par #{item.user}
+      form(method="get" action=`/party/${idParty}/items/${item._id}/update`)
+        input(type="submit" value="modifier")
+      form(action=`/party/${idParty}/items/${item._id}?_method=DELETE` method="post")
+        input(type="submit" value="supprimer")
+
+h2 Partager l'événement
+  input(type="text" value=`${url}`)
+include ../partials/footer.pug
