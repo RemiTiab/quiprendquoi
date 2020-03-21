@@ -16,6 +16,12 @@ app.get('/', function(req, res) {
   res.render('index', { title: 'My events' });
 });
 
+app.get('/error', function(req, res) {
+  res.render('error', {
+    title: "Page d'erreur"
+  });
+});
+
 app.post('/party', function(req, res) {
   axios
     .post(`${process.env.API_URL}/party`, req.body)

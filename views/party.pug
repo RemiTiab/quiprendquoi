@@ -1,0 +1,16 @@
+include ../partials/header.pug
+h1 Page des événements
+
+h2 Voici les lieux proposés pour l'événement
+
+h2 Proposer un lieu pour cette événement
+
+form(method="post" action=`/party`)
+  div
+    label(for="authorPlace") Pseudo
+    input(name="authorPlace" id="authorPlace" required minlength="3" placeholder="Votre Pseudo")
+    label(for="namePlace") Lieu de l'événement
+    input(name="namePlace" id="namePlace" required minlength="3" placeholder="Le nouveau casino")
+    label(for="adressPlace") Adresse du lieu
+    input(name="adressPlace" id="adressPlace" required minlength="3" placeholder="Place de la Bastille - 75000 Paris")
+  button(type="submit") Proposer
