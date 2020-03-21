@@ -5,7 +5,7 @@ const app = express();
 const dotenv = require('dotenv').config();
 
 app.get('/', function(req, res) {
-  res.send('Hello world');
+  res.render('index', { title: 'My events' });
 });
 
 app.listen(process.env.PORT, () =>
