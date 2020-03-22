@@ -1,10 +1,12 @@
 include ../partials/header.pug
-h1= party.name
-h2 Modifier l'événement
-form(method="post", action=`/party/${idParty}?_method=PATCH`).form
-  .form__fields
-    input( type="text" name="name" required minlength="3" maxlength="25" placeholder="Nom de l'événement" value=`${party.name}`)
-    input(type="text" name="author" required minlength="3" maxlength="25" placeholder="Pseudo" value=`${party.author}`)
-    input( type="date" name="date" maxlength="10" minlength="10" min=currentDate value=currentDate)
-    input.button(type="submit" value="modifier")
+.wrapper
+  .container
+    h1.container__title= party.name
+    h2.subtitle Modifier l'événement
+    form.form(method="post", action=`/party/${idParty}?_method=PATCH`)
+      .form__fields.form__fields--event
+        input( type="text" name="name" required minlength="3" maxlength="25" placeholder="Nom de l'événement" value=`${party.name}`)
+        input(type="text" name="author" required minlength="3" maxlength="25" placeholder="Pseudo" value=`${party.author}`)
+        input( type="date" name="date" maxlength="10" minlength="10" min=currentDate value=currentDate)
+        input.button(type="submit" value="modifier")
 include ../partials/footer.pug

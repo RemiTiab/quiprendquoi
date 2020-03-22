@@ -100,7 +100,8 @@ app.get('/party/:id/update', function(req, res) {
       res.render('updateEvent', {
         party: data,
         title: data.name,
-        idParty: req.params.id
+        idParty: req.params.id,
+        currentDate: mydate('date')
       })
     )
     .catch(err => console.log(err));

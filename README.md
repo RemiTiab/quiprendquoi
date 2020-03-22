@@ -10,7 +10,25 @@ _À modifier si votre travail le nécessite_
 
 ## Améliorations apportées
 
-_Pour chaque amélioration, un message type "message de commit" et si pertinent le nom des fichiers principalement concernés_
+J'ai pensé à rajouter un package permettant de récupérer la date du jour afin de mettre une valeur minimale sur le calendrier puisqu'on ne pourras jamais organisé un événement dans le passé.
+
+J'ai utilisé `npm i current-date` par la suite je l'ai appellé dans mon fichier app.js `var mydate = require('current-date');` puis je l'ai définie en tant que variable pour pouvoir la rappeller sur chaque template qui comporte un formulaire comprenant un input de type 'date'.
+
+Il existe plusieurs paramètres disponible pour cette fonction afin de formater la date outpout
+
+`mydate();
+ 
+mydate('full');
+ 
+mydate('date');
+ 
+mydate('time');
+ 
+mydate('full', '-', ':');
+ 
+mydate('full', '#')`
+
+J'ai utilisé `mydate('date');` afin de récuperer le format DD-MM-YYY.
 
 _Quelques exemples (voir le TP)_
 

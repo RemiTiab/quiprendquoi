@@ -1,43 +1,45 @@
 include ../partials/header.pug
 script.
   party = !{JSON.stringify(party)}
-h1= party.name
-p Evenement créé par #{party.author}
-p prévu le #{party.date}
-p #{party.description}
-h2 Paramètres de l'événement
-
-p Modifier l'événement
-form(method="get" action=`/party/${idParty}/update`).form
-  .form__fields
-    input(type="submit" value="modifier")
-
-p Supprimer l'événement
-form(method="post" action=`/party/${idParty}?_method=DELETE`).form
-  .form__fields
-    input.button(type="submit" value="supprimer")
-
-h2 Proposer un lieu pour cette événement
-form(method="post" action=`/party/${idParty}/items`).form
-  .forms_fields
-    label(for="name") Lieu de l'événement
-    input(type="text" name="name" required minlength="3" maxlength="25" placeholder="Paris")
-    label(for="user") Votre pseudo
-    input(type="text" name="user" required minlength="3" maxlength="25" placeholder="Pseudo")
-    input.button(type="submit" value="Proposer")
-
-
-h2 Voici les lieux proposés pour l'événement
-ul
-  each item in party.items
-    li #{item.name} est proposé par #{item.user}
-      form(method="get" action=`/party/${idParty}/items/${item._id}/update`).form
+.wrapper
+  .container
+    h1.container__title= party.name
+    .container__details
+      p Evenement créé par #{party.author}
+      p prévu le #{party.date}
+      p #{party.description}
+    .container__parameters
+      h2.subtitle Paramètres de l'événement
+      p Modifier l'événement
+      form.form(method="get" action=`/party/${idParty}/update`)
         .form__fields
           input.button(type="submit" value="modifier")
-      form(action=`/party/${idParty}/items/${item._id}?_method=DELETE` method="post").form
+      p Supprimer l'événement
+      form.form(method="post" action=`/party/${idParty}?_method=DELETE`)
         .form__fields
           input.button(type="submit" value="supprimer")
-
-h2 Partager l'événement
-  input(type="text" value=`${url}` data-clipboard=`${url}`  data-share-url=`${url}` data-share-title=`${party.name}` data-share-text=`${party.author} vous invite a rejoindre l'événement ${party.name}.`)
+    .container__propositions
+      h2.subtitle Proposer un lieu pour cette événement
+      form.form(method="post" action=`/party/${idParty}/items`)
+        .form__fields
+          label(for="name") Lieu de l'événement
+          input(type="text" name="name" required minlength="3" maxlength="25" placeholder="Paris")
+          label(for="user") Votre pseudo
+          input(type="text" name="user" required minlength="3" maxlength="25" placeholder="Pseudo")
+          input.button(type="submit" value="Proposer")
+    .container__places
+      h2.subtitle Voici les lieux proposés pour l'événement
+      ul
+        each item in party.items
+          li #{item.name} est proposé par #{item.user}
+            form.form(method="get" action=`/party/${idParty}/items/${item._id}/update`)
+              .form__fields
+                input.button(type="submit" value="modifier")
+            form.form(action=`/party/${idParty}/items/${item._id}?_method=DELETE` method="post")
+              .form__fields
+                input.button(type="submit" value="supprimer")
+    .container__share
+      h2.subtitle Partager l'événement
+      .share
+        input(type="text" value=`${url}` data-clipboard=`${url}`  data-share-url=`${url}` data-share-title=`${party.name}` data-share-text=`${party.author} vous invite a rejoindre l'événement ${party.name}.`)
 include ../partials/footer.pug

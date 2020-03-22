@@ -1,13 +1,15 @@
 include ../partials/header.pug
-h1= title
-h2 Créer un événement
-form(method="post" action="/party").form
-  .form__fields
-    label(for="author") Pseudo
-    input(name="author" id="author" required minlength="3" placeholder="Votre Pseudo")
-    label(for="name") Nom de l'événement
-    input(name="name" id="name" required minlength="3" placeholder="Nouvel an")
-    label(for="date") Date de l'événement
-    input(name="date" id="date" type="date" min=currentDate value=currentDate)
-  button.button(type="submit") Créer
+.wrapper
+  .container
+    h2.container__title Créer un événement
+    .container__form
+      form.form(method="post" action="/party")
+        .form__fields
+          label(for="author") Pseudo
+          input(name="author" id="author" required minlength="3" placeholder="Votre Pseudo")
+          label(for="name") Nom de l'événement
+          input(name="name" id="name" required minlength="3" placeholder="Nouvel an")
+          label(for="date") Date de l'événement
+          input(name="date" id="date" type="date" min=currentDate value=currentDate)
+          button.button.button--margin(type="submit") Créer
 include ../partials/footer.pug
