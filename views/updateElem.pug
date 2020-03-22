@@ -11,5 +11,5 @@ include ../partials/header.pug
             input( type="text" name="name" required minlength="3" maxlength="25" placeholder="Paris" value=`${item.name}`)
             label(for="user") Votre pseudo
             input(type="text" name="user" required minlength="3" maxlength="25" placeholder="Pseudo" value=`${item.user}`)
-            input.button.button(type="submit" value="modifier")
+            input.button.vibrate(type="submit" value="modifier" data-notification="updatePlaces")
 include ../partials/footer.pug

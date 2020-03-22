@@ -11,5 +11,5 @@ include ../partials/header.pug
           input(name="name" id="name" required minlength="3" placeholder="Nouvel an")
           label(for="date") Date de l'événement
           input(name="date" id="date" type="date" min=currentDate value=currentDate)
-          button.button.button--margin(type="submit") Créer
+          button.button.button--margin.notifications(type="submit" data-notification="create") Créer
 include ../partials/footer.pug

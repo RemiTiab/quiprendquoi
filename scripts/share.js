@@ -3,6 +3,7 @@ if (navigator.share) {
     const $button = document.createElement("button");
     $button.innerHTML = "Partager";
     $shareEl.parentNode.append($button);
+    $button.classList.add('vibrate');
 
     $button.addEventListener("click", share.bind(this, $shareEl));
   });

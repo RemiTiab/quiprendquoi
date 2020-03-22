@@ -13,11 +13,11 @@ script.
       p Modifier l'événement
       form.form(method="get" action=`/party/${idParty}/update`)
         .form__fields
-          input.button(type="submit" value="modifier")
+          input.button.vibrate(type="submit" value="modifier")
       p Supprimer l'événement
       form.form(method="post" action=`/party/${idParty}?_method=DELETE`)
         .form__fields
-          input.button(type="submit" value="supprimer")
+          input.button.vibrate(type="submit" value="supprimer" data-notification="deleteEvent")
     .container__propositions
       h2.subtitle Proposer un lieu pour cette événement
       form.form(method="post" action=`/party/${idParty}/items`)
@@ -26,7 +26,7 @@ script.
           input(type="text" name="name" required minlength="3" maxlength="25" placeholder="Paris")
           label(for="user") Votre pseudo
           input(type="text" name="user" required minlength="3" maxlength="25" placeholder="Pseudo")
-          input.button(type="submit" value="Proposer")
+          input.button.vibrate(type="submit" value="Proposer" data-notification="propositionsPlaces")
     .container__places
       h2.subtitle Voici les lieux proposés pour l'événement
       ul
@@ -37,7 +37,7 @@ script.
                 input.button(type="submit" value="modifier")
             form.form(action=`/party/${idParty}/items/${item._id}?_method=DELETE` method="post")
               .form__fields
-                input.button(type="submit" value="supprimer")
+                input.button(type="submit" value="supprimer" data-notification="deletePlaces")
     .container__share
       h2.subtitle Partager l'événement
       .share

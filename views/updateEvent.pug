@@ -8,5 +8,5 @@ include ../partials/header.pug
         input( type="text" name="name" required minlength="3" maxlength="25" placeholder="Nom de l'événement" value=`${party.name}`)
         input(type="text" name="author" required minlength="3" maxlength="25" placeholder="Pseudo" value=`${party.author}`)
         input( type="date" name="date" maxlength="10" minlength="10" min=currentDate value=currentDate)
-        input.button(type="submit" value="modifier")
+        input.button.vibrate(type="submit" value="modifier" data-notification="updateEvent")
 include ../partials/footer.pug
