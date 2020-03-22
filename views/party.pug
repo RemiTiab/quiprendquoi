@@ -8,30 +8,35 @@ p #{party.description}
 h2 Paramètres de l'événement
 
 p Modifier l'événement
-form(method="get" action=`/party/${idParty}/update`)
-  input(type="submit" value="modifier")
+form(method="get" action=`/party/${idParty}/update`).form
+  .form__fields
+    input(type="submit" value="modifier")
 
 p Supprimer l'événement
-form(method="post" action=`/party/${idParty}?_method=DELETE`)
-  input(type="submit" value="supprimer")
+form(method="post" action=`/party/${idParty}?_method=DELETE`).form
+  .form__fields
+    input.button(type="submit" value="supprimer")
 
 h2 Proposer un lieu pour cette événement
-form(method="post" action=`/party/${idParty}/items`)
-  label(for="name") Lieu de l'événement
-  input(type="text" name="name" required minlength="3" maxlength="25" placeholder="Paris")
-  label(for="user") Votre pseudo
-  input(type="text" name="user" required minlength="3" maxlength="25" placeholder="Pseudo")
-  input(type="submit" value="Proposer")
+form(method="post" action=`/party/${idParty}/items`).form
+  .forms_fields
+    label(for="name") Lieu de l'événement
+    input(type="text" name="name" required minlength="3" maxlength="25" placeholder="Paris")
+    label(for="user") Votre pseudo
+    input(type="text" name="user" required minlength="3" maxlength="25" placeholder="Pseudo")
+    input.button(type="submit" value="Proposer")
 
 
 h2 Voici les lieux proposés pour l'événement
 ul
   each item in party.items
     li #{item.name} est proposé par #{item.user}
-      form(method="get" action=`/party/${idParty}/items/${item._id}/update`)
-        input(type="submit" value="modifier")
-      form(action=`/party/${idParty}/items/${item._id}?_method=DELETE` method="post")
-        input(type="submit" value="supprimer")
+      form(method="get" action=`/party/${idParty}/items/${item._id}/update`).form
+        .form__fields
+          input.button(type="submit" value="modifier")
+      form(action=`/party/${idParty}/items/${item._id}?_method=DELETE` method="post").form
+        .form__fields
+          input.button(type="submit" value="supprimer")
 
 h2 Partager l'événement
   input(type="text" value=`${url}`)

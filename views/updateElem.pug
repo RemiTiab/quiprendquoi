@@ -4,10 +4,11 @@ h2 Modifier une proposition de lieu
   each item in party.items
     if item._id == idElement
       div
-        form(method="post" action=`/party/${idParty}/items/${item._id}?_method=PATCH`)
-          label(for="name") Lieu de l'événement
-          input( type="text" name="name" required minlength="3" maxlength="25" placeholder="Paris" value=`${item.name}`)
-          label(for="user") Votre pseudo
-          input(type="text" name="user" required minlength="3" maxlength="25" placeholder="Pseudo" value=`${item.user}`)
-          input(type="submit" value="modifier")
+        form(method="post" action=`/party/${idParty}/items/${item._id}?_method=PATCH`).form
+          .form__fields
+            label(for="name") Lieu de l'événement
+            input( type="text" name="name" required minlength="3" maxlength="25" placeholder="Paris" value=`${item.name}`)
+            label(for="user") Votre pseudo
+            input(type="text" name="user" required minlength="3" maxlength="25" placeholder="Pseudo" value=`${item.user}`)
+            input.button(type="submit" value="modifier")
 include ../partials/footer.pug

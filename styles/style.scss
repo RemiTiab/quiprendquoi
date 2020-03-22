@@ -1,2 +1,13 @@
 // Vendors
 @import './vendors/reset';
+
+// Config
+@import './config/medias';
+
+// Components
+@import './components/header';
+@import './components/footer';
+@import './components/button';
+
+// Blocks
+@import './blocs/form';
