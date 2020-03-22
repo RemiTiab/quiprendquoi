@@ -26,9 +26,6 @@ J'utilise ce morceaux de code qui permet de lancer la fonction de propositions d
 
 Les notifications permette d'avertir les utilisateurs lorsqu'un événement est créé, modifié, supprimé et également lors qu'un item est ajouté, modifié ou supprimé.
 
-
-
-
 ### NPM PACKAGE current-date
 
 J'ai pensé à rajouter un package permettant de récupérer la date du jour afin de mettre une valeur minimale sur le calendrier puisqu'on ne pourras jamais organisé un événement dans le passé.
@@ -37,19 +34,9 @@ J'ai utilisé `npm i current-date` par la suite je l'ai appellé dans mon fichie
 
 Il existe plusieurs paramètres disponible pour cette fonction afin de formater la date outpout
 
-`mydate();
+`mydate(); mydate('full'); mydate('date'); mydate('time'); mydate('full', '-', ':'); mydate('full', '#')`
 
-mydate('full');
-
-mydate('date');
-
-mydate('time');
-
-mydate('full', '-', ':');
-
-mydate('full', '#')`
-
-J'ai utilisé `mydate('date');` afin de récuperer le format DD-MM-YYY.
+J'ai utilisé `mydate('date');` afin de récuperer le format DD-MM-YYYY.
 
 ### API Vibration
 
@@ -57,7 +44,8 @@ J'ai également implémenter cette API afin de signaler les utilisateurs mobiles
 
 J'ai ajouté une classe `vibrate` aux bouttons qui permette de faire une action qui modifie du texte ou supprime des éléments.
 
-`const buttons = document.querySelectorAll('.vibrate');
+```
+const buttons = document.querySelectorAll('.vibrate');
 let vibrations = function() {
   navigator.vibrate([200]);
 };
@@ -68,7 +56,8 @@ for (let i = 0; i < buttons.length; i++) {
   button.addEventListener('click', function() {
     vibrations();
   });
-}`
+}
+```
 
 ## Article personnel
 
@@ -87,3 +76,4 @@ J'ai eu pas mal de difficultés à réalisé ce TP, certaines étapes sont clair
 Personnellement j'essayerais la mise en place de l'API de géolocalisation afin d'améliorer mon savoir.
 
 Merci pour vos cours très bien définis, vos documentations relatives aux exercices et pour le temps que vous nous réservé.
+````
