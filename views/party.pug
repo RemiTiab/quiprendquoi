@@ -39,5 +39,5 @@ ul
           input.button(type="submit" value="supprimer")
 
 h2 Partager l'événement
-  input(type="text" value=`${url}` data-clipboard=`${url}`)
+  input(type="text" value=`${url}` data-clipboard=`${url}`  data-share-url=`${url}` data-share-title=`${party.name}` data-share-text=`${party.author} vous invite a rejoindre l'événement ${party.name}.`)
 include ../partials/footer.pug
